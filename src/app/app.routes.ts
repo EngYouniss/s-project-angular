@@ -12,6 +12,9 @@ export const routes: Routes = [
     path:'register',component:Register
   },
   {
-    path:'home',component:Home
+    path:'home',loadComponent:()=>import('./components/home/home').then(c=>c.Home),
+  },
+  {
+    path:'admin',loadChildren:()=>import('./admin/admin-module').then((m)=>m.AdminModule)
   }
 ];
